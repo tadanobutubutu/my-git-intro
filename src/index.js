@@ -357,3 +357,13 @@ function endGame() {
 
 // Start the game when page loads
 window.addEventListener("load", init);
+
+// High score tracking logic
+let highScore = localStorage.getItem('highScore') || 0;
+function updateHighScore(currentScore) {
+    if (currentScore > highScore) {
+        highScore = currentScore;
+        localStorage.setItem('highScore', highScore);
+        document.getElementById('high-score').innerText = highScore;
+    }
+}
